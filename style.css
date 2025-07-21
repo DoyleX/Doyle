@@ -1,38 +1,102 @@
 body {
   margin: 0;
-  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: #000;
-  color: #fff;
-  background-image: radial-gradient(circle at top left, #ff0000, #000),
-                    radial-gradient(circle at bottom right, #00ffff, #000);
-  background-blend-mode: screen;
-  overflow-x: hidden;
+  background: #000000;
+  color: #ffffff;
 }
 
-h1 {
+header {
+  background: linear-gradient(to right, #ffea00, #00ffff);
+  padding: 1rem;
   text-align: center;
-  color: #faff00;
-  text-shadow: 0 0 10px #faff00, 0 0 20px #faff00;
-  margin-top: 30px;
+  color: black;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+nav a {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #00ffff;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
+}
+
+.character {
+  background: #111;
+  border: 2px solid #ffea00;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.character img {
+  width: 100%;
+  border-radius: 8px;
+  height: auto;
+}
+
+textarea {
+  width: 100%;
+  max-width: 500px;
+  padding: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #222;
+  color: #fff;
+  margin-bottom: 1rem;
 }
 
 button {
-  background-color: #00ffff;
+  background: #ff0000;
   border: none;
-  color: black;
-  padding: 10px 20px;
-  margin: 10px;
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  border-radius: 10px;
+  color: #fff;
   cursor: pointer;
-  box-shadow: 0 0 10px #00ffff;
-  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  transition: 0.3s;
+  margin: 0.2rem;
 }
 
 button:hover {
-  background-color: #ff0055;
-  color: white;
-  box-shadow: 0 0 20px #ff0055;
+  background: #00ffff;
+  color: #000;
+}
+
+footer {
+  background: #111;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #888;
+  margin-top: 2rem;
+}
+
+select, input[type="checkbox"] {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: none;
+}
+
+section {
+  padding: 2rem;
 }
