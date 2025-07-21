@@ -100,3 +100,152 @@ select, input[type="checkbox"] {
 section {
   padding: 2rem;
 }
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+
+const personajes = [
+  {
+    nombre: "Yuki-chan",
+    descripcion: "Una waifu mágica con poderes de hielo y una sonrisa encantadora.",
+    imagen: "/personajes/yuki.png"
+  },
+  {
+    nombre: "Kaito-senpai",
+    descripcion: "Héroe tsundere con una espada de fuego y actitud ruda.",
+    imagen: "/personajes/kaito.png"
+  },
+  {
+    nombre: "Aiko",
+    descripcion: "Una idol energética que canta y combate el mal con su voz.",
+    imagen: "/personajes/aiko.png"
+  },
+  {
+    nombre: "Shiro",
+    descripcion: "Un neko misterioso con ojos brillantes y habilidades de hacker.",
+    imagen: "/personajes/shiro.png"
+  },
+  {
+    nombre: "Nami",
+    descripcion: "Pirata del mar de los sueños, siempre en busca de aventuras.",
+    imagen: "/personajes/nami-gen.png"
+  },
+  {
+    nombre: "ZeroX",
+    descripcion: "Un androide con IA avanzada que lucha por entender la humanidad.",
+    imagen: "/personajes/zerox-ai.png"
+  }
+];
+
+export default function HomePage() {
+  const [nsfwEnabled, setNsfwEnabled] = useState(false);
+  const toggleNSFW = () => setNsfwEnabled(!nsfwEnabled);
+
+  return (
+    <div className="min-h-screen bg-black text-white font-mono p-4 bg-[url('/anime-bg-dynamic.gif')] bg-cover bg-center">
+      <header className="text-center text-yellow-400 text-5xl font-extrabold mb-8 drop-shadow-lg">
+        ⚡ Doyle IA ⚡
+      </header>
+
+      <Tabs defaultValue="chat">
+        <TabsList className="grid grid-cols-7 w-full bg-blue-900/80 rounded-2xl p-1 shadow-lg shadow-yellow-500">
+          <TabsTrigger value="chat">💬 Chat</TabsTrigger>
+          <TabsTrigger value="explore">🔍 Explorar</TabsTrigger>
+          <TabsTrigger value="create">✨ Crear</TabsTrigger>
+          <TabsTrigger value="profile">🧙 Perfil</TabsTrigger>
+          <TabsTrigger value="settings">⚙️ Ajustes</TabsTrigger>
+          <TabsTrigger value="support">🛠️ Soporte</TabsTrigger>
+          <TabsTrigger value="games">🎮 Minijuegos</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="chat">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 text-lg space-y-4">
+              <p>💬 Chatea o rolea con tus personajes favoritos, ahora con avatares animados en tiempo real y emociones IA.</p>
+              <Button className="bg-red-600 hover:bg-yellow-400 text-white font-bold rounded-xl">🎭 Iniciar Roleplay</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="explore">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {personajes.map((p, idx) => (
+              <Card key={idx} className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+                <CardContent className="p-4">
+                  <img src={p.imagen} alt={p.nombre} className="w-full h-48 object-cover rounded-xl mb-2 border-2 border-yellow-400" />
+                  <h3 className="text-2xl font-bold text-yellow-300">{p.nombre}</h3>
+                  <p className="text-blue-200">{p.descripcion}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </TabsContent>
+
+        <TabsContent value="create">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 space-y-4">
+              <Input placeholder="Nombre del personaje" className="bg-black/60 border-red-500 text-white placeholder-yellow-200 rounded-xl" />
+              <Input placeholder="Descripción del personaje" className="bg-black/60 border-red-500 text-white placeholder-yellow-200 rounded-xl" />
+              <Button className="w-full bg-red-600 hover:bg-yellow-400 transition text-lg font-bold rounded-xl">Crear Personaje ✍️</Button>
+              <Button className="w-full bg-yellow-400 hover:bg-red-500 transition text-lg font-bold rounded-xl">Crear con IA 🤖✨</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="profile">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 text-lg">
+              <p>👤 Bienvenido, [NombreUsuario]</p>
+              <p>🎖 Nivel: 12 | Tokens: 1200</p>
+              <p>⭐ Suscripción: Premium (IA avanzada realista)</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="settings">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-lg">🔞 Activar contenido NSFW</span>
+                <Button onClick={toggleNSFW} className={`font-bold ${nsfwEnabled ? 'bg-red-600' : 'bg-yellow-500'} rounded-xl`}>
+                  {nsfwEnabled ? "Activado" : "Desactivado"}
+                </Button>
+              </div>
+              <div className="space-y-2">
+                <label className="block text-lg">🌍 Idioma</label>
+                <select className="bg-black/70 border-yellow-400 text-white rounded-xl p-2 w-full">
+                  <option>Español</option>
+                  <option>Inglés</option>
+                  <option>Japonés</option>
+                  <option>Coreano</option>
+                </select>
+              </div>
+              <p className="text-sm text-blue-200">💡 Personalización de modelos IA, temas, voces y más próximamente.</p>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="support">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 space-y-4 text-lg">
+              <p>🤖 IA de soporte: Hola, ¿en qué puedo ayudarte? Puedes escribir tu problema técnico aquí y lo resolveré automáticamente.</p>
+              <Input placeholder="Describe tu problema aquí..." className="bg-black/60 border-yellow-400 text-white rounded-xl" />
+              <Button className="w-full bg-yellow-500 hover:bg-red-600 text-black font-bold rounded-xl">Solicitar Ayuda</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="games">
+          <Card className="bg-blue-800/70 backdrop-blur-md text-white border-yellow-400 border-2 rounded-2xl shadow-lg">
+            <CardContent className="p-6 text-lg space-y-4">
+              <p>🎮 Minijuegos especiales para desbloquear recompensas, tokens y escenas ocultas de roleplay.</p>
+              <Button className="bg-yellow-400 hover:bg-red-600 text-black font-bold rounded-xl">Iniciar Minijuego</Button>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  );
+}
