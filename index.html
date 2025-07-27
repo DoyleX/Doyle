@@ -1,164 +1,22 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doyle IA</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Doyle IA - Roleplay AI</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Doyle IA</h1>
-    <nav>
-      <ul>
-        <li><a href="#profile">Perfil</a></li>
-        <li><a href="#settings">Ajustes</a></li>
-        <li><a href="#characters">Personajes</a></li>
-        <li><a href="#chat">Chat</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>Doyle IA</header>
 
-  <main>
-    <section id="characters">
-      <h2>Personajes destacados</h2>
-      <div class="character-grid">
-        <div class="character">
-          <img src="images/goku.jpg" alt="Goku">
-          <h3>Goku</h3>
-          <p>Anime: Dragon Ball</p>
-        </div>
-        <div class="character">
-          <img src="images/ayaka.png" alt="Ayaka">
-          <h3>Ayaka</h3>
-          <p>Juego: Genshin Impact</p>
-        </div>
-        <div class="character">
-          <img src="images/johnwick.jpg" alt="John Wick">
-          <h3>John Wick</h3>
-          <p>Película</p>
-        </div>
-        <div class="character">
-          <img src="images/araña.png" alt="Spider-Man">
-          <h3>Spider-Man</h3>
-          <p>Cómic</p>
-        </div>
-      </div>
-    </section>
+    <div class="chat-container">
+        <h2>Chat Roleplay</h2>
+        <img class="character-img" src="https://cdn.pixabay.com/photo/2021/07/15/20/26/anime-6468634_960_720.png" alt="Personaje IA">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Escribe tu mensaje aquí...">
+        <button onclick="sendMessage()">Enviar</button>
+    </div>
 
-    <section id="chat">
-      <h2>Zona de Chat</h2>
-      <textarea placeholder="Escribe aquí..." rows="6"></textarea><br>
-      <button>Enviar mensaje</button>
-      <button id="roleplayToggle">Modo Roleplay</button>
-    </section>
-
-    <section id="settings">
-      <h2>Ajustes</h2>
-      <label for="language">Idioma:</label>
-      <select id="language">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="jp">日本語</option>
-      </select>
-
-      <div>
-        <label for="nsfwToggle">Contenido NSFW:</label>
-        <input type="checkbox" id="nsfwToggle">
-      </div>
-
-      <div>
-        <a href="#">Soporte Técnico</a> |
-        <a href="#">Términos y Condiciones</a> |
-        <a href="#">Política de Privacidad</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Doyle IA. Todos los derechos reservados.</p>
-  </footer>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Doyle IA</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Doyle IA</h1>
-    <nav>
-      <ul>
-        <li><a href="#profile">Perfil</a></li>
-        <li><a href="#settings">Ajustes</a></li>
-        <li><a href="#characters">Personajes</a></li>
-        <li><a href="#chat">Chat</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section id="characters">
-      <h2>Personajes destacados</h2>
-      <div class="character-grid">
-        <div class="character">
-          <img src="images/goku.jpg" alt="Goku">
-          <h3>Goku</h3>
-          <p>Anime: Dragon Ball</p>
-        </div>
-        <div class="character">
-          <img src="images/ayaka.png" alt="Ayaka">
-          <h3>Ayaka</h3>
-          <p>Juego: Genshin Impact</p>
-        </div>
-        <div class="character">
-          <img src="images/johnwick.jpg" alt="John Wick">
-          <h3>John Wick</h3>
-          <p>Película</p>
-        </div>
-        <div class="character">
-          <img src="images/araña.png" alt="Spider-Man">
-          <h3>Spider-Man</h3>
-          <p>Cómic</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="chat">
-      <h2>Zona de Chat</h2>
-      <textarea placeholder="Escribe aquí..." rows="6"></textarea><br>
-      <button>Enviar mensaje</button>
-      <button id="roleplayToggle">Modo Roleplay</button>
-    </section>
-
-    <section id="settings">
-      <h2>Ajustes</h2>
-      <label for="language">Idioma:</label>
-      <select id="language">
-        <option value="es">Español</option>
-        <option value="en">English</option>
-        <option value="jp">日本語</option>
-      </select>
-
-      <div>
-        <label for="nsfwToggle">Contenido NSFW:</label>
-        <input type="checkbox" id="nsfwToggle">
-      </div>
-
-      <div>
-        <a href="#">Soporte Técnico</a> |
-        <a href="#">Términos y Condiciones</a> |
-        <a href="#">Política de Privacidad</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Doyle IA. Todos los derechos reservados.</p>
-  </footer>
+    <script src="app.js"></script>
 </body>
 </html>
